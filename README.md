@@ -1,111 +1,150 @@
-# Spotify ML Project
+Real-Time Music Popularity Prediction System
+Overview
 
-This project analyzes Spotify music data using Machine Learning.
+This project implements an end-to-end machine learning system that predicts whether a song is popular or not using real-time music popularity data.
+Instead of relying on static datasets, the system fetches live data from the Last.fm API, processes it through a preprocessing pipeline, applies a trained machine learning model, and presents results through a Streamlit-based web interface.
 
-🎵 Real-Time Music Popularity Prediction System
+The project demonstrates practical machine learning engineering, including data ingestion, preprocessing, model training, inference, and deployment readiness.
 
-A real-time machine learning project that predicts music popularity using live data from the Last.fm API, instead of static datasets.
-The system is designed with an industry-standard pipeline and is deployable using Streamlit.
 
-📌 Project Overview
+Key Features Implemented
 
-Thousands of songs are released daily, making it difficult to identify which tracks are popular or trending.
-This project solves the problem by fetching real-time music popularity metrics and preparing them for machine learning-based analysis.
+Real-time data ingestion using Last.fm API
 
-Instead of relying on outdated CSV files, the system uses live API data, making it suitable for real-world deployment.
+Secure API key management using environment variables
 
-🚀 Features Implemented (Current Stage)
+Robust preprocessing pipeline for machine learning
 
-✔ Real-time data ingestion using Last.fm API
-✔ Secure API key management using .env
-✔ Robust preprocessing pipeline for ML readiness
-✔ Clean project structure with modular design
-✔ Professional Git workflow
+Binary popularity classification model
 
-🏗️ Project Structure
+Model persistence using joblib
+
+Streamlit-based interactive web application
+
+Clean and modular project structure
+
+Version-controlled development using Git and GitHub
+
+
+Project Structure
+
 spotify-ml-project/
 │
+├── app.py                    # Streamlit web application
+│
 ├── src/
-│   ├── config.py            # Environment config & feature definitions
-│   ├── lastfm_client.py     # Last.fm real-time API integration
-│   └── preprocess.py        # Data preprocessing pipeline
+│   ├── config.py             # Environment configuration and feature definitions
+│   ├── lastfm_client.py      # Last.fm API integration
+│   ├── preprocess.py         # Data preprocessing pipeline
+│   ├── train.py              # Machine learning model training
+│   └── predict.py            # Real-time prediction logic
 │
-├── test_preprocess.py       # Preprocessing test script
+├── models/
+│   ├── popularity_model.joblib
+│   └── scaler.joblib
 │
-├── .env                     # API keys (ignored in Git)
+├── test_preprocess.py        # Preprocessing test script
+├── test_predict.py           # Prediction test script
 ├── requirements.txt
 ├── README.md
+└── .env                      # Environment variables (ignored in Git)
 
-🔑 API Used
+
+Data Source
 Last.fm API
 
-Provides real-time popularity metrics
+The system uses the Last.fm API to fetch real-time popularity metrics, including:
 
-Easy authentication (API key only)
+Track listener count
 
-Used for:
-
-Track listeners
-
-Track playcount
+Track play count
 
 Artist popularity indicators
 
-Spotify Web API was initially planned, but due to temporary developer access restrictions, Last.fm was used as a reliable alternative.
+Spotify Web API was initially planned, but due to temporary developer access restrictions, Last.fm was selected as a reliable alternative.
 
-🔐 Environment Setup
-1️⃣ Create .env file (project root)
+Environment Setup
+
+1. Create a virtual environment (recommended)
+python -m venv .venv
+source .venv/bin/activate   # Linux / macOS
+.venv\Scripts\Activate.ps1  # Windows
+
+2. Install dependencies
+pip install -r requirements.txt
+
+3. Configure environment variables
+
+Create a .env file in the project root:
 LASTFM_API_KEY=your_lastfm_api_key_here
 
 
-⚠️ Do not commit this file to GitHub.
 
-2️⃣ Install dependencies
-pip install -r requirements.txt
+Preprocessing Pipeline
 
-🧪 Testing Real-Time Data
+The preprocessing module performs the following steps:
 
-Run the test script:
+Converts raw API responses into structured DataFrame format
 
+Selects relevant numeric features
+
+Handles missing or incomplete values safely
+
+Scales features for consistent model input
+
+The same preprocessing logic is reused during both training and prediction to maintain consistency.
+
+
+Machine Learning Model
+
+Model type: Logistic Regression
+
+Task: Binary classification (Popular / Not Popular)
+
+Popularity definition:
+A song is labeled as popular if its play count exceeds a predefined threshold.
+
+The model is trained using real-time samples and persisted for reuse during inference.
+
+
+Running the Streamlit Application
+
+To launch the web interface locally:
+streamlit run app.py
+
+The application allows users to enter a song name and artist name and receive:
+
+Popularity prediction
+
+Confidence score
+
+Feature values used for prediction
+
+
+Testing
+
+Basic test scripts are included to validate:
+
+Real-time data fetching
+
+Preprocessing correctness
+
+Prediction pipeline integrity
+
+Run tests using:
 python test_preprocess.py
+python test_predict.py
 
-Sample Output
-{
- 'track_name': 'Blinding Lights',
- 'artist_name': 'The Weeknd',
- 'listeners': 2275434,
- 'playcount': 37246021,
- 'artist_listeners': 0,
- 'artist_playcount': 0
-}
+Version Control
+
+All development has been tracked using Git and pushed to GitHub with clean, descriptive commit messages.
+Sensitive files such as .env, virtual environments, and cache directories are excluded using .gitignore.
+
+Current Status
+
+All planned objectives up to this phase have been successfully completed.
+The project currently provides a complete, deployable, real-time machine learning application.
 
 
-This confirms successful real-time data fetching and preprocessing.
 
-🧠 Preprocessing Pipeline
 
-The preprocessing module performs:
-
-Conversion of API response to DataFrame
-
-Selection of relevant numeric features
-
-Handling missing or incomplete values
-
-Preparation of ML-ready inputs
-
-This design supports both training and real-time prediction workflows.
-
-📊 Technologies Used
-
-Python 3.x
-
-Last.fm Web API
-
-Pandas & NumPy
-
-Scikit-learn
-
-Git & GitHub
-
-Streamlit (planned)
