@@ -1,33 +1,34 @@
-Real-Time Music Popularity Prediction System
-Overview
 
-This project implements an end-to-end machine learning system that predicts whether a song is popular or not using real-time music popularity data.
-Instead of relying on static datasets, the system fetches live data from the Last.fm API, processes it through a preprocessing pipeline, applies a trained machine learning model, and presents results through a Streamlit-based web interface.
+---
 
-The project demonstrates practical machine learning engineering, including data ingestion, preprocessing, model training, inference, and deployment readiness.
+# Real-Time Music Popularity Prediction System
 
+## Overview
 
-Key Features Implemented
+This project implements an end-to-end machine learning system that predicts whether a song is **popular or not** using **real-time music popularity data**.
 
-Real-time data ingestion using Last.fm API
+Instead of relying on static datasets, the system fetches **live data from the Last.fm API**, processes it through a preprocessing pipeline, applies a trained machine learning model, and presents results through a **Streamlit-based web interface**.
 
-Secure API key management using environment variables
+The project demonstrates practical machine learning engineering concepts, including **data ingestion, preprocessing, model training, inference, and deployment readiness**.
 
-Robust preprocessing pipeline for machine learning
+---
 
-Binary popularity classification model
+## Key Features Implemented
 
-Model persistence using joblib
+* Real-time data ingestion using Last.fm API
+* Secure API key management using environment variables
+* Robust preprocessing pipeline for machine learning
+* Binary popularity classification model
+* Model persistence using joblib
+* Streamlit-based interactive web application
+* Clean and modular project structure
+* Version-controlled development using Git and GitHub
 
-Streamlit-based interactive web application
+---
 
-Clean and modular project structure
+## Project Structure
 
-Version-controlled development using Git and GitHub
-
-
-Project Structure
-
+```
 spotify-ml-project/
 │
 ├── app.py                    # Streamlit web application
@@ -48,103 +49,128 @@ spotify-ml-project/
 ├── requirements.txt
 ├── README.md
 └── .env                      # Environment variables (ignored in Git)
+```
 
+---
 
-Data Source
-Last.fm API
+## Data Source
 
-The system uses the Last.fm API to fetch real-time popularity metrics, including:
+### Last.fm API
 
-Track listener count
+The system uses the **Last.fm API** to fetch real-time popularity metrics, including:
 
-Track play count
-
-Artist popularity indicators
+* Track listener count
+* Track play count
+* Artist popularity indicators
 
 Spotify Web API was initially planned, but due to temporary developer access restrictions, Last.fm was selected as a reliable alternative.
 
-Environment Setup
+---
 
-1. Create a virtual environment (recommended)
+## Environment Setup
+
+### 1. Create a Virtual Environment (Recommended)
+
+```bash
 python -m venv .venv
 source .venv/bin/activate   # Linux / macOS
 .venv\Scripts\Activate.ps1  # Windows
+```
 
-2. Install dependencies
+---
+
+### 2. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-3. Configure environment variables
+---
 
-Create a .env file in the project root:
+### 3. Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
 LASTFM_API_KEY=your_lastfm_api_key_here
+```
 
+> Note: This file should not be committed to GitHub.
 
+---
 
-Preprocessing Pipeline
+## Preprocessing Pipeline
 
 The preprocessing module performs the following steps:
 
-Converts raw API responses into structured DataFrame format
+* Converts raw API responses into structured DataFrame format
+* Selects relevant numeric features
+* Handles missing or incomplete values safely
+* Scales features for consistent model input
 
-Selects relevant numeric features
+The same preprocessing logic is reused during both **training and prediction** to maintain consistency.
 
-Handles missing or incomplete values safely
+---
 
-Scales features for consistent model input
+## Machine Learning Model
 
-The same preprocessing logic is reused during both training and prediction to maintain consistency.
+* **Model Type:** Logistic Regression
+* **Task:** Binary Classification (Popular / Not Popular)
 
+### Popularity Definition
 
-Machine Learning Model
+A song is labeled as **Popular** if its play count exceeds a predefined threshold.
 
-Model type: Logistic Regression
+The trained model is persisted using `joblib` and reused during real-time inference.
 
-Task: Binary classification (Popular / Not Popular)
+---
 
-Popularity definition:
-A song is labeled as popular if its play count exceeds a predefined threshold.
+## Running the Streamlit Application
 
-The model is trained using real-time samples and persisted for reuse during inference.
+To launch the web application locally:
 
-
-Running the Streamlit Application
-
-To launch the web interface locally:
+```bash
 streamlit run app.py
+```
 
-The application allows users to enter a song name and artist name and receive:
+The application allows users to:
 
-Popularity prediction
+* Enter a song name and artist name
+* View popularity prediction
+* View confidence score
+* Inspect feature values used for prediction
 
-Confidence score
+---
 
-Feature values used for prediction
-
-
-Testing
+## Testing
 
 Basic test scripts are included to validate:
 
-Real-time data fetching
+* Real-time data fetching
+* Preprocessing correctness
+* Prediction pipeline integrity
 
-Preprocessing correctness
+Run the tests using:
 
-Prediction pipeline integrity
-
-Run tests using:
+```bash
 python test_preprocess.py
 python test_predict.py
+```
 
-Version Control
+---
 
-All development has been tracked using Git and pushed to GitHub with clean, descriptive commit messages.
-Sensitive files such as .env, virtual environments, and cache directories are excluded using .gitignore.
+## Version Control
 
-Current Status
+All development has been tracked using **Git** and pushed to **GitHub** with clean, descriptive commit messages.
+
+Sensitive files such as `.env`, virtual environments, and cache directories are excluded using `.gitignore`.
+
+---
+
+## Current Status
 
 All planned objectives up to this phase have been successfully completed.
-The project currently provides a complete, deployable, real-time machine learning application.
 
+The project currently provides a **complete, deployable, real-time machine learning application**.
 
-
-
+---
