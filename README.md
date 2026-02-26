@@ -1,27 +1,26 @@
 
-=======
-#  AI Music Popularity Predictor
+# AI Music Popularity Predictor
 
 # Overview
 
 ## Project Overview
 
-This project implements a complete end-to-end machine learning pipeline that predicts whether a song is popular or not using real-time music popularity metrics. Unlike traditional ML projects that rely on static datasets, this system fetches live data from the Last.fm API, preprocesses it, applies a trained classification model, and provides predictions through an interactive Streamlit web application.
+This project implements a complete end-to-end machine learning pipeline that predicts whether a song is popular or not using real-time music popularity metrics. The system uses a trained classification model on a Spotify tracks dataset, preprocesses it, and provides predictions through an interactive Streamlit web application.
 
-The system demonstrates practical machine learning engineering skills including real-time data ingestion, preprocessing, model training, inference pipeline design, and deployment-ready interface development.
+The system demonstrates practical machine learning engineering skills including data ingestion, preprocessing, model training, inference pipeline design, and deployment-ready interface development.
 
 ---
 
 ## Problem Statement
 
-Music popularity prediction is important for streaming platforms, recommendation systems, and analytics. However, most academic ML projects rely on static datasets, which do not reflect real-time popularity.
+Music popularity prediction is important for streaming platforms, recommendation systems, and analytics. However, most academic ML projects rely on static datasets, which do not reflect real-world prediction systems.
 
 This project solves that limitation by:
 
-* Fetching real-time popularity metrics from an external API
-* Processing the data into machine learning features
+* Processing music data into machine learning features
 * Training a classification model
 * Providing live predictions through a web interface
+* Deploying a production-ready machine learning application
 
 ---
 
@@ -29,25 +28,23 @@ This project solves that limitation by:
 
 Pipeline flow:
 
-User Input (Song, Artist)
-→ Last.fm API (Real-Time Data)
-→ Preprocessing Pipeline
-→ Trained Machine Learning Model
-→ Prediction Output
-→ Streamlit Web Interface
+User selects song from UI  
+→ Dataset lookup and feature extraction  
+→ Preprocessing Pipeline  
+→ Trained Machine Learning Model  
+→ Prediction Output  
+→ Streamlit Web Interface  
 
 ---
 
 ## Features Implemented
 
-### Real-Time Data Ingestion
+### Machine Learning Pipeline
 
-* Integrated Last.fm API using secure API authentication
-* Fetches live popularity metrics including:
-
-  * Track listeners
-  * Track play count
-  * Artist popularity indicators
+* Feature preprocessing
+* Model training and persistence
+* Prediction pipeline
+* Confidence score generation
 
 ### Data Preprocessing Pipeline
 
@@ -58,17 +55,9 @@ User Input (Song, Artist)
 
 ### Machine Learning Model
 
-* Model: Logistic Regression
+* Model: Random Forest Classifier
 * Task: Binary classification (Popular vs Not Popular)
-* Popularity label defined based on play count threshold
-* Model and scaler persisted using joblib for reuse
-
-### Prediction Pipeline
-
-* Loads trained model and scaler
-* Fetches real-time data
-* Applies preprocessing
-* Generates prediction and confidence score
+* Model persisted using joblib for reuse
 
 ### Interactive Web Interface
 
@@ -78,23 +67,13 @@ User Input (Song, Artist)
 
   * Prediction result
   * Confidence score
-  * Feature values used
+  * Model performance metrics
 
 ### Software Engineering Practices
 
 * Modular project structure
-* Environment-based configuration
 * Version control using Git and GitHub
 * Separation of training and inference pipelines
-=======
-
-The system includes:
-
-* Machine Learning model trained on **114,000+ Spotify tracks**
-* Real-time prediction pipeline
-* Modern **Spotify-style Streamlit web interface**
-* Confidence score visualization using animated gauge meter
-* Production-ready modular architecture
 
 ---
 
@@ -128,6 +107,7 @@ Features shown:
 ## Features Used
 
 ```
+
 danceability
 energy
 loudness
@@ -137,6 +117,7 @@ instrumentalness
 liveness
 valence
 tempo
+
 ```
 
 ---
@@ -152,70 +133,18 @@ tempo
 
 ---
 
-# System Architecture
+# Project Structure
 
 ```
-User selects song from UI
-        ↓
-Dataset lookup and feature extraction
-        ↓
-Feature scaling (StandardScaler)
-        ↓
-Random Forest model prediction
-        ↓
-Confidence score calculation
-        ↓
-Interactive Streamlit visualization
-```
 
----
-
-# Features
-
-## Machine Learning Pipeline
-
-* Feature preprocessing
-* Model training and persistence
-* Prediction pipeline
-* Confidence score generation
-
-## Frontend Interface
-
-* Spotify-style animated UI
-* Album cover display with glow effect
-* Animated confidence gauge
-* Color-coded popularity indicator
-* Compact professional layout
-
-## Engineering Features
-
-* Modular architecture
-* Production-ready code
-* Model persistence with joblib
-* Deployment-ready Streamlit app
-
----
-
-#  Project Structure
-
-```
 spotify-ml-project/
 │
 ├── app.py
 │
-├── src/
-│   ├── config.py
-│   ├── lastfm_client.py
-│   ├── preprocess.py
-│   ├── train.py
-│   └── predict.py
-=======
 ├── data/
 │   └── spotify_tracks.csv
 │
 ├── models/
-│   ├── popularity_model.joblib
-│   ├── scaler.joblib
 │   └── metrics.json
 │
 ├── src/
@@ -224,231 +153,9 @@ spotify-ml-project/
 │   ├── preprocess.py
 │   └── spotify_client.py
 │
-├── test_preprocess.py
-├── test_predict.py
-├── requirements.txt
-├── README.md
-└── .env
-=======
 ├── requirements.txt
 └── README.md
-```
 
----
-
-## Technologies Used
-
-Programming Language:
-
-* Python
-
-Machine Learning:
-
-* scikit-learn
-* Logistic Regression
-* StandardScaler
-
-Data Processing:
-
-* Pandas
-* NumPy
-
-API Integration:
-
-* Last.fm API
-* Requests
-
-Web Application:
-
-* Streamlit
-
-Model Persistence:
-
-* Joblib
-
-Version Control:
-
-* Git
-* GitHub
-
----
-
-## Installation and Setup
-
-### Clone the repository
-
-```
-git clone https://github.com/Tilak-05/spotify-ml-project.git
-cd spotify-ml-project
-```
-
-### Create virtual environment
-
-=======
-# Installation
-
-## Clone Repository
-
-```
-git clone https://github.com/Tilak-05/spotify-ml-project.git
-cd spotify-ml-project
-```
-
----
-
-## Create Virtual Environment
-
-```
-python -m venv .venv
-.venv\Scripts\activate
-```
-
-### Install dependencies
-
-```
-pip install -r requirements.txt
-```
-
-### Configure API key
-
-Create `.env` file:
-
-```
-LASTFM_API_KEY=your_api_key_here
-```
-
----
-
-## Running the Application
-
-Launch the Streamlit interface:
-
-```
-streamlit run app.py
-```
-
-The application will open in the browser and allow real-time predictions.
-
----
-
-## Model Training
-
-To retrain the model:
-
-```
-python -m src.train
-```
-
-This will:
-
-* Collect training samples
-* Train the classification model
-* Save model and scaler
-
----
-
-## Testing
-
-Run validation tests:
-
-```
-python test_preprocess.py
-python test_predict.py
-=======
-# Run Application
-
-```
-streamlit run app.py
-```
-
-Open browser:
-
-```
-http://localhost:8501
-
-```
-
-These tests verify:
-
-* API integration
-* Preprocessing correctness
-* Prediction pipeline functionality
-
----
-
-## Example Prediction Output
-
-```
-Song: Blinding Lights
-Artist: The Weeknd
-
-Prediction: Popular
-Confidence: 92.34%
-
-Features:
-listeners: 2275434
-playcount: 37246021
-```
-
----
-
-## Engineering Highlights (Resume-Relevant)
-
-This project demonstrates:
-
-* Real-time ML pipeline development
-* API-based feature engineering
-* Training and inference separation
-* Model persistence and reuse
-* Production-style project structure
-* Interactive ML application deployment
-=======
-# Train Model
-
-```
-python -m src.train
-```
-
-This generates:
-
-```
-models/popularity_model.joblib
-models/scaler.joblib
-models/metrics.json
-```
-
----
-
-# Example Prediction
-
-The system successfully performs real-time popularity prediction using live data and is fully functional for demonstration and deployment.
-
----
-
-## Future Improvements
-
-* Collect larger training dataset
-* Use advanced models such as Random Forest or XGBoost
-* Add model evaluation metrics dashboard
-* Deploy on Streamlit Cloud
-* Add automated retraining pipeline
-
----
-
-
-=======
-Input:
-
-```
-Song: Chammak Challo
-Artist: Vishal-Shekhar
-```
-
-Output:
-
-```
-Prediction: Medium Popularity
-Confidence: 66.0%
 ```
 
 ---
@@ -479,6 +186,90 @@ Confidence: 66.0%
 
 ---
 
+# Installation
+
+## Clone Repository
+
+```
+
+git clone [https://github.com/Tilak-05/spotify-ml-project.git](https://github.com/Tilak-05/spotify-ml-project.git)
+cd spotify-ml-project
+
+```
+
+---
+
+## Create Virtual Environment
+
+```
+
+python -m venv .venv
+.venv\Scripts\activate
+
+```
+
+---
+
+## Install Dependencies
+
+```
+
+pip install -r requirements.txt
+
+```
+
+---
+
+# Run Application
+
+```
+
+streamlit run app.py
+
+```
+
+Open browser:
+
+```
+
+[http://localhost:8501](http://localhost:8501)
+
+```
+
+---
+
+# Train Model
+
+```
+
+python -m src.train
+
+```
+
+---
+
+# Example Prediction
+
+Input:
+
+```
+
+Song: Chammak Challo
+Artist: Vishal-Shekhar
+
+```
+
+Output:
+
+```
+
+Prediction: Medium Popularity
+Confidence: 66.0%
+
+```
+
+---
+
 # Engineering Highlights
 
 This project demonstrates:
@@ -502,3 +293,19 @@ Can be deployed on:
 
 ---
 
+# Future Improvements
+
+* Use advanced models such as XGBoost
+* Add automated retraining pipeline
+* Deploy on cloud infrastructure
+```
+
+---
+
+This version is now:
+
+* Clean
+* Professional
+* Conflict-free
+* Resume-ready
+* GitHub-ready
