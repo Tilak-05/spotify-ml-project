@@ -2,23 +2,7 @@
 =======
 #  AI Music Popularity Predictor
 
-<p align="center">
-  <b>Production-Ready Machine Learning System for Predicting Song Popularity</b>
-</p>
-
-<p align="center">
-
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![Scikit-Learn](https://img.shields.io/badge/ML-ScikitLearn-orange)
-![Streamlit](https://img.shields.io/badge/UI-Streamlit-red)
-![Status](https://img.shields.io/badge/Status-ProductionReady-green)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
-
-</p>
-
-
-
-# 📌 Overview
+# Overview
 
 ## Project Overview
 
@@ -103,7 +87,6 @@ User Input (Song, Artist)
 * Version control using Git and GitHub
 * Separation of training and inference pipelines
 =======
-This project implements a complete **end-to-end machine learning pipeline** that predicts whether a song will be popular based on its Spotify audio features.
 
 The system includes:
 
@@ -115,11 +98,9 @@ The system includes:
 
 ---
 
-# 🖥️ Application Demo
+# Application Demo
 
 ## Main Interface
-
-![App Screenshot](sandbox:/mnt/data/edf4d12c-8afe-4355-a2fd-4d85fa71768c.png)
 
 Features shown:
 
@@ -128,11 +109,10 @@ Features shown:
 * Confidence gauge meter
 * Popularity classification
 * Model performance metrics
->>>>>>> 1cc3af3 (Major update: Spotify API integration, improved ML model, UI redesign with album cover and animated gauge, production-ready Streamlit app)
 
 ---
 
-# 🧠 Machine Learning Details
+# Machine Learning Details
 
 ## Model Information
 
@@ -172,7 +152,7 @@ tempo
 
 ---
 
-# ⚙️ System Architecture
+# System Architecture
 
 ```
 User selects song from UI
@@ -190,7 +170,7 @@ Interactive Streamlit visualization
 
 ---
 
-# 🚀 Features
+# Features
 
 ## Machine Learning Pipeline
 
@@ -216,7 +196,7 @@ Interactive Streamlit visualization
 
 ---
 
-# 📂 Project Structure
+#  Project Structure
 
 ```
 spotify-ml-project/
@@ -305,7 +285,7 @@ cd spotify-ml-project
 ### Create virtual environment
 
 =======
-# 💻 Installation
+# Installation
 
 ## Clone Repository
 
@@ -375,7 +355,7 @@ Run validation tests:
 python test_preprocess.py
 python test_predict.py
 =======
-# ▶️ Run Application
+# Run Application
 
 ```
 streamlit run app.py
@@ -423,7 +403,7 @@ This project demonstrates:
 * Production-style project structure
 * Interactive ML application deployment
 =======
-# 🧪 Train Model
+# Train Model
 
 ```
 python -m src.train
@@ -439,7 +419,7 @@ models/metrics.json
 
 ---
 
-# 🎯 Example Prediction
+# Example Prediction
 
 The system successfully performs real-time popularity prediction using live data and is fully functional for demonstration and deployment.
 
@@ -473,7 +453,7 @@ Confidence: 66.0%
 
 ---
 
-# 🛠 Technologies Used
+# Technologies Used
 
 ## Machine Learning
 
@@ -499,7 +479,7 @@ Confidence: 66.0%
 
 ---
 
-# 🧩 Engineering Highlights
+# Engineering Highlights
 
 This project demonstrates:
 
@@ -511,7 +491,7 @@ This project demonstrates:
 
 ---
 
-# 🚀 Deployment Ready
+# Deployment Ready
 
 Can be deployed on:
 
