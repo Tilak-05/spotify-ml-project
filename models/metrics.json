@@ -1,0 +1,20 @@
+{
+    "model": "RandomForestClassifier",
+    "accuracy": 0.8539035087719298,
+    "precision": 0.4536264847106394,
+    "recall": 0.6056005398110661,
+    "f1_score": 0.5187111689062274,
+    "training_samples": 114000,
+    "features": [
+        "danceability",
+        "energy",
+        "loudness",
+        "speechiness",
+        "acousticness",
+        "instrumentalness",
+        "liveness",
+        "valence",
+        "tempo"
+    ],
+    "timestamp": "2026-02-27T00:33:41.787368"
+}
