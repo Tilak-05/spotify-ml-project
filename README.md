@@ -293,19 +293,3 @@ Can be deployed on:
 
 ---
 
-# Future Improvements
-
-* Use advanced models such as XGBoost
-* Add automated retraining pipeline
-* Deploy on cloud infrastructure
-```
-
----
-
-This version is now:
-
-* Clean
-* Professional
-* Conflict-free
-* Resume-ready
-* GitHub-ready
