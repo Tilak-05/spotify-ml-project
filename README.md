@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 =======
 #  AI Music Popularity Predictor
 
@@ -16,12 +16,10 @@
 
 </p>
 
->>>>>>> 1cc3af3 (Major update: Spotify API integration, improved ML model, UI redesign with album cover and animated gauge, production-ready Streamlit app)
----
+
 
 # 📌 Overview
 
-<<<<<<< HEAD
 ## Project Overview
 
 This project implements a complete end-to-end machine learning pipeline that predicts whether a song is popular or not using real-time music popularity metrics. Unlike traditional ML projects that rely on static datasets, this system fetches live data from the Last.fm API, preprocesses it, applies a trained classification model, and provides predictions through an interactive Streamlit web application.
@@ -225,7 +223,6 @@ spotify-ml-project/
 │
 ├── app.py
 │
-<<<<<<< HEAD
 ├── src/
 │   ├── config.py
 │   ├── lastfm_client.py
@@ -235,7 +232,6 @@ spotify-ml-project/
 =======
 ├── data/
 │   └── spotify_tracks.csv
->>>>>>> 1cc3af3 (Major update: Spotify API integration, improved ML model, UI redesign with album cover and animated gauge, production-ready Streamlit app)
 │
 ├── models/
 │   ├── popularity_model.joblib
@@ -248,7 +244,6 @@ spotify-ml-project/
 │   ├── preprocess.py
 │   └── spotify_client.py
 │
-<<<<<<< HEAD
 ├── test_preprocess.py
 ├── test_predict.py
 ├── requirements.txt
@@ -257,12 +252,10 @@ spotify-ml-project/
 =======
 ├── requirements.txt
 └── README.md
->>>>>>> 1cc3af3 (Major update: Spotify API integration, improved ML model, UI redesign with album cover and animated gauge, production-ready Streamlit app)
 ```
 
 ---
 
-<<<<<<< HEAD
 ## Technologies Used
 
 Programming Language:
@@ -325,7 +318,6 @@ cd spotify-ml-project
 
 ## Create Virtual Environment
 
->>>>>>> 1cc3af3 (Major update: Spotify API integration, improved ML model, UI redesign with album cover and animated gauge, production-ready Streamlit app)
 ```
 python -m venv .venv
 .venv\Scripts\activate
@@ -333,18 +325,12 @@ python -m venv .venv
 
 ### Install dependencies
 
-<<<<<<< HEAD
-=======
-## Install Dependencies
-
->>>>>>> 1cc3af3 (Major update: Spotify API integration, improved ML model, UI redesign with album cover and animated gauge, production-ready Streamlit app)
 ```
 pip install -r requirements.txt
 ```
 
 ### Configure API key
 
-<<<<<<< HEAD
 Create `.env` file:
 
 ```
@@ -399,7 +385,7 @@ Open browser:
 
 ```
 http://localhost:8501
->>>>>>> 1cc3af3 (Major update: Spotify API integration, improved ML model, UI redesign with album cover and animated gauge, production-ready Streamlit app)
+
 ```
 
 These tests verify:
@@ -410,7 +396,6 @@ These tests verify:
 
 ---
 
-<<<<<<< HEAD
 ## Example Prediction Output
 
 ```
@@ -451,13 +436,11 @@ models/popularity_model.joblib
 models/scaler.joblib
 models/metrics.json
 ```
->>>>>>> 1cc3af3 (Major update: Spotify API integration, improved ML model, UI redesign with album cover and animated gauge, production-ready Streamlit app)
 
 ---
 
 # 🎯 Example Prediction
 
-<<<<<<< HEAD
 The system successfully performs real-time popularity prediction using live data and is fully functional for demonstration and deployment.
 
 ---
@@ -538,5 +521,4 @@ Can be deployed on:
 * Docker
 
 ---
->>>>>>> 1cc3af3 (Major update: Spotify API integration, improved ML model, UI redesign with album cover and animated gauge, production-ready Streamlit app)
 
